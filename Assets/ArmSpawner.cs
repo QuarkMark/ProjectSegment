@@ -36,7 +36,7 @@ public class SegmentSpawner : MonoBehaviour
         newSegment.transform.position = lastSegment.position + Vector3.up * spacing;
         newSegment.transform.SetParent(lastSegment);
 
-        // 🎨 Apply a random color
+       
         Renderer rend = newSegment.GetComponentInChildren<Renderer>();
         if (rend != null)
         {
@@ -44,7 +44,7 @@ public class SegmentSpawner : MonoBehaviour
             mat.color = Random.ColorHSV(0f, 1f, 0.7f, 1f, 0.9f, 1f);
             rend.material = mat;
 
-            // 🖨️ Print to Console
+           
             Debug.Log($"✅ Spawned {newSegment.name} with color: {mat.color}");
         }
         else
@@ -52,7 +52,7 @@ public class SegmentSpawner : MonoBehaviour
             Debug.Log($"✅ Spawned {newSegment.name} (no renderer found)");
         }
 
-        // 💥 Particle effect
+    
         if (spawnEffectPrefab != null)
         {
             Instantiate(spawnEffectPrefab, newSegment.transform.position, Quaternion.identity);
